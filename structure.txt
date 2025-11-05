@@ -1,0 +1,47 @@
+src/ui/
+│
+├── main_window.py
+├── app_icons.qrc / qrc_resources.py
+│
+├── dialogs/
+│   ├── base_dialog.py
+│   ├── settings_dialog.py
+│   ├── about_dialog.py
+│   ├── new_bus_dialog.py
+│   └── ...
+│
+├── pages/
+│   ├── __init__.py
+│   ├── dashboard_page.py
+│   ├── bus_page.py
+│   ├── equipment_page.py
+│   ├── conductor_page.py
+│   └── ...
+│
+├── widgets/
+│   ├── __init__.py
+│   ├── custom_grid.py
+│   ├── collapsible_panel.py
+│   ├── toolbar.py
+│   ├── navigation_bar.py
+│   └── ...
+│
+├── theme/
+│   ├── colors.py
+│   ├── fonts.py
+│   ├── icons/
+│   │   ├── dark/
+│   │   ├── light/
+│   │   └── ...
+│   ├── style.qss
+│   └── style_manager.py
+│
+├── menus/
+│   ├── menubar.py
+│   ├── context_menus.py
+│   └── ...
+│
+└── status/
+    ├── status_bar.py
+    ├── progress_indicator.py
+    └── notifications.py
