@@ -3,4 +3,5 @@ from dataclasses import dataclass
 @dataclass
 class Area:
     
-    id  :   int
+    id      :   int
+    name    :   str

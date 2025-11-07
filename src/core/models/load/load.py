@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from src.core.models.bus.bus import Bus
 
 from src.core.models.area.area import Area
+from src.core.models.bus.bus import Bus
 from src.core.models.owner.owner import Owner
 from src.core.models.zone.zone import Zone
 from src.utils.type_hints import TwoCharString
@@ -14,8 +14,8 @@ class Load:
     zone                    : Zone
     area                    : Area
     owner                   : Owner
-    p                       : float = 0.0
-    q                       : float = 0.0
+    mw                      : float = 0.0
+    mvar                    : float = 0.0
     ip                      : float = 0.0
     iq                      : float = 0.0
     yp                      : float = 0.0

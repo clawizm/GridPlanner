@@ -3,4 +3,5 @@ from dataclasses import dataclass
 @dataclass
 class Owner:
 
-    id  :   int
+    id      :   int
+    name    :   str
