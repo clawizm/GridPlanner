@@ -1,0 +1,121 @@
+ui/
+  shell/                      # App chrome & composition
+    AppFrame.py
+    Navigation.py             # menu/toolbar, AUI notebooks, routing
+    StatusBar.py
+    EventWiring.py            # app-wide event subscriptions
+
+  themes/
+    palettes.py
+    metrics.py
+    icons.py
+    styles_wx.py              # or styles_qt.py; toolkit-specific shims
+
+  kits/                       # Reusable, toolkit-specific widgets
+    grids/
+      SmartGrid.py            # wx.Grid / QTableView wrapper w/ sort/filter
+      ColumnDefs.py
+    forms/
+      FormBuilder.py
+      Validators.py
+      Inputs.py
+    dialogs/
+      Confirm.py
+      FilePicker.py
+    charts/
+      Sparkline.py
+      TrendChart.py
+
+  adapters/                   # UI-facing DTOs, mappers, formatters
+    formatters.py             # pu/ohms/amps, kv labels, owner text, etc.
+    mappers.py                # Domain -> UI row models
+    validators.py
+
+  # ---- Feature slices: one per transmission element ----
+  features/
+    buses/
+      views/
+        BusListView.py        # table/page
+        BusDetailView.py      # right panel / tab
+      dialogs/
+        BusCreateDialog.py
+        BusEditDialog.py
+        BulkUpdateDialog.py
+        ImportFromRAWDialog.py
+      presenters/             # or viewmodels/ if you prefer MVVM
+        BusListPresenter.py
+        BusDetailPresenter.py
+      state/
+        BusStore.py           # in-memory UI state, filters, selection
+      menus/
+        bus_context_menu.py
+      __init__.py
+
+    transformers/
+      views/
+        XfmrListView.py
+        XfmrDetailView.py
+      dialogs/
+        XfmrCreateDialog.py
+        XfmrTapDialog.py
+      presenters/
+        XfmrListPresenter.py
+        XfmrDetailPresenter.py
+      state/
+        XfmrStore.py
+      menus/
+        xfmr_context_menu.py
+      __init__.py
+
+    shunts/
+      views/
+        ShuntListView.py
+        ShuntDetailView.py
+      dialogs/
+        ShuntCreateDialog.py
+      presenters/
+        ShuntListPresenter.py
+        ShuntDetailPresenter.py
+      state/
+        ShuntStore.py
+      __init__.py
+
+    loads/
+      views/
+        LoadListView.py
+        LoadDetailView.py
+      dialogs/
+        LoadCreateDialog.py
+        LoadProfileDialog.py
+      presenters/
+        LoadListPresenter.py
+        LoadDetailPresenter.py
+      state/
+        LoadStore.py
+      __init__.py
+
+    lines/
+      views/
+        LineListView.py
+        LineDetailView.py
+      dialogs/
+        LineCreateDialog.py
+        RatingsDialog.py
+      presenters/
+        LineListPresenter.py
+        LineDetailPresenter.py
+      state/
+        LineStore.py
+      __init__.py
+
+  # Cross-feature utilities that are still UI-only
+  selection/
+    SelectionService.py       # global “what’s selected” bus/line/shunt
+  clipboard/
+    ClipboardService.py       # copy/paste row models, CSV, images
+  export/
+    ExportService.py          # to CSV/XLSX, with column defs
+
+  tests_ui/
+    test_buses_list.py
+    test_transformers_dialogs.py
