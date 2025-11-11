@@ -1,0 +1,1 @@
+PLEASE Read and document the last Query in ChatGPT about filtering methods and where they belong in the architeutre. 

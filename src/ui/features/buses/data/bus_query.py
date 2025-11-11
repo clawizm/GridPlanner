@@ -2,6 +2,34 @@ from typing import Sequence
 from src.ui.kits.grids.spec import QuerySpec
 from src.ui.kits.grids.datasource import QueryPort
 
+def _apply_filters(q, f):
+    if v := f.get("name_contains"):
+        q = q.where(Bus.name.ilike(f"%{v}%"))
+    if v := f.get("kv_between"):
+        lo, hi = v
+        q = q.where(Bus.kv.between(lo, hi))
+    if v := f.get("zone"):
+        q = q.where(Bus.zone == v)
+    if v := f.get("owner_in"):
+        q = q.where(Bus.owner.in_(v))
+    return q
+
+def _apply_sort(q, sort):
+    mapping = {
+        "id": Bus.id,
+        "name": Bus.name,
+        "kv": Bus.kv,
+        "zone": Bus.zone,
+        "owner": Bus.owner,
+    }
+    order = []
+    for key, direction in sort or [("id","asc")]:
+        col = mapping.get(key)
+        if not col: 
+            continue
+        order.append(col.asc() if direction == "asc" else col.desc())
+    return q.order_by(*order)
+
 class BusRowDTO:
     __slots__ = ("id","name","kv","zone","owner")
     def __init__(self, id:int, name:str, kv:float, zone:str, owner:str):

@@ -6,7 +6,7 @@
 
 if __name__ == '__main__':
     # from src.core.models.shunt.switched_shunt import SwitchedShunt, ControlMode
-    from PyQt6.QtWidgets import QApplication, QLabel, QFrame
+    from PySide6.QtWidgets import QApplication, QLabel, QFrame
     app = QApplication([])
     from src.ui.features.buses.views.bus_list_view import BusListView
     parent = QFrame(None)
